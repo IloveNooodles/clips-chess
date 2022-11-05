@@ -7,10 +7,6 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defglobal ?*N* = 8)			; *N* x *N* board, >5 for now
-					; This is for 8*8 board
-					;lakshay comment
-
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; deftemplates
@@ -191,8 +187,7 @@
   (+ (abs (- ?v1 ?v2)) (abs (- ?h1 ?h2))))
 
 (deffunction find-move-in-sequence (?v ?h $?moves)
-  "Determine whether given coordinates are present within
-list of moves."
+  "Determine whether given coordinates are present within list of moves."
   (if (= (length$ ?moves) 0)
       then return FALSE
       else (or (and (= ?v (nth$ 1 ?moves))
@@ -264,8 +259,7 @@ list of moves."
   (and (< (abs (- ?bkv ?wrv)) 2) (< (abs (- ?bkh ?wrh)) 2)))
 
 (deffunction rook-must-move (?wkv ?wkh ?wrv ?wrh ?bkv ?bkh)
-  "Determine whether rook must move - rook is attacked and white king
-is not nearby."
+  "Determine whether rook must move - rook is attacked and white king is not nearby."
   (and (rook-attacked ?wrv ?wrh ?bkv ?bkv)
        (or (> (abs (- ?wkv ?wrv)) 2) (> (abs (- ?wkh ?wrh)) 2))))
 
@@ -717,10 +711,10 @@ is not nearby."
 
 (defrule start-pos
   "Enter start position."
-  (initial-fact)
+;   (initial-fact)
   ?s <- (status (value start) (move-number ?))
   =>
-  (retract ?s)
+;   (retract ?s)
   (if (enter-start-pos)
       then (modify ?s (value white-move))
       else (reset)))
