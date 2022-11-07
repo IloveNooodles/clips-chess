@@ -1,5 +1,5 @@
-;;; CLIPS rule based system playing chess endgame
-;;   white rook and king against black king
+;;  CLIPS rule based system playing chess endgame
+;;  white rook and king against black king
 ;;  by Andrey Kotlarski m00naticus@gmail.com
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -24,12 +24,11 @@
 	(default white))
   (slot vertical
 	(type INTEGER)
-	;; (range 1 ?*N*)
+	(range 1 8)
 	)
   (slot horizontal
 	(type INTEGER)
-	;; (range 1 ?*N*)
-	))
+	(range 1 8)))
 
 (deftemplate status
   "Only one instance is supposed to circulate and keep track of current search and general condition as well as current move number."
@@ -51,13 +50,12 @@
 	(default white))
   (slot vertical
 	(type INTEGER)
-	;; (range 1 ?*N*)
+	(range 1 8)
 	)
   (slot horizontal
 	(type INTEGER)
-	;; (range 1 ?*N*)
+	(range 1 8)
 	))
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; functions
