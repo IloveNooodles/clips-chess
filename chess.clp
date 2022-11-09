@@ -24,11 +24,12 @@
 	(default white))
   (slot vertical
 	(type INTEGER)
-	(range 1 8)
+	; (range 1 ?*N*)
 	)
   (slot horizontal
 	(type INTEGER)
-	(range 1 8)))
+	; (range 1 ?*N*)
+	))
 
 (deftemplate status
   "Only one instance is supposed to circulate and keep track of current search and general condition as well as current move number."
@@ -50,12 +51,13 @@
 	(default white))
   (slot vertical
 	(type INTEGER)
-	(range 1 8)
+	; (range 1 ?*N*)
 	)
   (slot horizontal
 	(type INTEGER)
-	(range 1 8)
+	; (range 1 ?*N*)
 	))
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; functions
@@ -909,7 +911,7 @@
 					     ?bkv ?bkh))
   (modify ?s (value white-move-done)))
 
-(defrule king-deffending-move
+(defrule king-defending-move
   "If rook is attacked and white king can defend it - play king move."
   ?s <- (status (value white-move-ponder) (move-number ?))
   (figure (sortof king) (colour white) (vertical ?wkv)
